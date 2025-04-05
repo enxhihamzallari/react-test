@@ -139,7 +139,7 @@ export class RunPanel {
 
         switch (command) {
           case "ready":
-            console.log("ready");//Added for RunPanelTest
+            console.log("ready yo");//Added for RunPanelTest
             // Code that should run in response to the hello message command
             // window.showInformationMessage(text);
             return;

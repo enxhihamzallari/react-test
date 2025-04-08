@@ -43,6 +43,36 @@ export class RunPanel {
    * @param extensionUri The URI of the directory containing the extension.
    */
   public static render(extensionUri: Uri) {
+
+    window.createWebviewPanel(
+      // Panel view type
+      "ontoUML",
+      // Panel title
+      "Model",
+      // The editor column the panel should be displayed in
+      ViewColumn.One,
+      // Extra panel configurations
+      {
+        // Enable JavaScript in the webview
+        enableScripts: true,
+        // Restrict the webview to only load resources from the `out` and `webview-ui/build` directories
+        localResourceRoots: [Uri.joinPath(extensionUri, "out"), Uri.joinPath(extensionUri, "webview-ui/build")],
+      }
+    ).webview.html = /*html*/ `
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Run</title>
+      </head>
+      <body>
+        <h1>Some OntoUML Model Stuff</h1>
+      </body>
+    </html>
+  `;
+
+
     if (RunPanel.currentPanel) {
       // If the webview panel already exists reveal it
       RunPanel.currentPanel._panel.reveal(ViewColumn.One);
@@ -54,7 +84,7 @@ export class RunPanel {
         // Panel title
         "RUN",
         // The editor column the panel should be displayed in
-        ViewColumn.One,
+        ViewColumn.Two,
         // Extra panel configurations
         {
           // Enable JavaScript in the webview

@@ -59,7 +59,7 @@ export function App2() {
   };
 
   return (
-    <div style={{ width: "100%", height: "75vh" }}>
+    <div style={{ width: "100%", height: "120vh" }}>
       <div className="w-full flex gap-3 mb-2">
         <VSCodeTextField
           value={text}

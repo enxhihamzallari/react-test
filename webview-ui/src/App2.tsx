@@ -1,9 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { InteractiveNvlWrapper, MouseEventCallbacks } from "@neo4j-nvl/react";
 import { Node, Relationship } from "@neo4j-nvl/base";
 import { VSCodeButton, VSCodeTextField } from "@vscode/webview-ui-toolkit/react";
+import { connect } from "./connections";
+
+
 
 export function App2() {
+
   const [text, setText] = useState("");
   const [nodes, setNodes] = useState<Node[]>([
     { id: "0", caption: "Jonny" },
@@ -13,6 +17,10 @@ export function App2() {
     { from: "0", to: "1", id: "10", caption: "is taking" },
   ]);
   const [selectedNodes, setSelectedNodes] = useState<Node[]>([]);
+
+  useEffect(()=>{
+    connect()
+  }, [])
 
   const addNode = () => {
     const newNode = { id: String(nodes.length), caption: text };

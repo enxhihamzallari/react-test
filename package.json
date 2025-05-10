@@ -9,6 +9,7 @@
   "categories": [
     "Other"
   ],
+  
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
@@ -24,6 +25,7 @@
     "install:all": "npm install && cd webview-ui && npm install",
     "start:webview": "cd webview-ui && npm run start",
     "build:webview": "cd webview-ui && npm run build",
+    "generate:triggers": "dotnet run --project \"C:\\Users\\EnxhiPC\\Documents\\TUWien\\S25\\AME\\csharp\\neo4j-constraint-generator-master\\Neo4jConstraintGenerator\\Neo4jConstraintGenerator.csproj\"",
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
